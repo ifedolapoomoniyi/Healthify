@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "Healthify_backend": {
+      "main": "src/Healthify_backend/main.mo",
+      "type": "motoko"
+    },
+    "Healthify_frontend": {
+      "dependencies": [
+        "Healthify_backend"
+      ],
+      "source": [
+        "src/Healthify_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "Healthify_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
