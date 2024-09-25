@@ -1,31 +1,29 @@
-import { useState } from 'react';
-import { Healthify_backend } from 'declarations/Healthify_backend';
+import { Healthify_backend } from "declarations/Healthify_backend";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+
 
 function App() {
-  const [greeting, setGreeting] = useState('');
+	// const [greeting, setGreeting] = useState("");
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const name = event.target.elements.name.value;
-    Healthify_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
-    });
-    return false;
-  }
-
-  return (
-    <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting">{greeting}</section>
-    </main>
-  );
+	// function handleSubmit(event) {
+	// 	event.preventDefault();
+	// 	const name = event.target.elements.name.value;
+	//   console.log(name)
+	// 	Healthify_backend.greet(name).then((greeting) => {
+	// 		setGreeting(greeting);
+	// 	});
+	// 	return false;
+	// }
+	return (
+		<>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Home />} />
+				</Routes>
+			</BrowserRouter>
+		</>
+	);
 }
 
 export default App;
