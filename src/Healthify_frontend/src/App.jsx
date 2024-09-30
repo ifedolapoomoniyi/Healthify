@@ -1,6 +1,7 @@
 import { Healthify_backend } from "declarations/Healthify_backend";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
+import CreateAcc from "./pages/auth/CreateAcc";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<Home />} />
+					<Route path='/auth/signup' element={<CreateAcc />} />
 				</Routes>
 			</BrowserRouter>
 		</>
