@@ -25,7 +25,7 @@ const Navbar = () => {
 			</div>
 
 			<div>
-				<NavLink className="p-2 rounded-2xl bg-black">
+				<NavLink to={'/auth/signup'} className="p-2 rounded-2xl bg-black">
 					Get Started
 				</NavLink>
 			</div>
