@@ -5,7 +5,7 @@ import { TypographyH4 } from "../../components/Typography";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 
-const CreateAcc = () => {
+const Login = () => {
 	const formik = useFormik({
 		initialValues: {
 			email: "",
@@ -25,18 +25,16 @@ const CreateAcc = () => {
 	});
 
 	return (
-		<div className="flex flex-row gap-5 text-white h-screen items-center bg-healthImage bg-cover">
-			<div className="p-5 max-w-[529px] md:p-10 bg-transparentBlack h-full">
+		<div className="flex flex-row gap-5 text-white h-screen items-center justify-end bg-healthImage bg-cover">
+			<div className="p-5 w-full max-w-[529px] md:p-10 bg-transparentBlack h-full">
 				<div>
-					<TypographyH4 className={"my-5"}>Create a new account</TypographyH4>
-					<p>
-						Welcome to Healthify, where we empower patients,
-						healthcare providers, and researchers through secure and
-						transparent blockchain technology.
-					</p>
+					<TypographyH4 className={"my-5"}>Log In</TypographyH4>
+					<p>Welcome to Healthify, we missed you</p>
 				</div>
 				<div>
-					<Button className="w-full my-5 hover:bg-primaryHover duration-300 transition-all">Continue with wallet</Button>
+					<Button className="w-full my-5 hover:bg-primaryHover duration-300 transition-all">
+						Continue with wallet
+					</Button>
 
 					<div className="my-5 text-center text-gray-600">OR</div>
 					<form onSubmit={formik.handleSubmit} className="space-y-3">
@@ -78,21 +76,34 @@ const CreateAcc = () => {
 									{formik.errors.password}
 								</div>
 							) : null}
+
+							<Link
+								to={"/auth/forgot-password"}
+								className="text-secondary text-sm text-right"
+							>
+								Forgot Password?
+							</Link>
 						</div>
-						<Button className="bg-secondary w-full my-10 hover:bg-secondaryHover" type="submit">Sign Up</Button>
+						<Button
+							className="bg-secondary w-full my-10 hover:bg-secondaryHover"
+							type="submit"
+						>
+							Sign Up
+						</Button>
 					</form>
 
-					<div className="text-right">
-						Already have an account? <Link to={'/auth/login'} className="text-secondary">Log in</Link>
+					<div className="text-right text-sm">
+						Don't have an account?{" "}
+						<Link to={"/auth/signup"} className="text-secondary">
+							Sign up
+						</Link>
 					</div>
 				</div>
 			</div>
 
-			<div>
-				{/* <img src={Image} alt="" /> */}
-			</div>
+			<div>{/* <img src={Image} alt="" /> */}</div>
 		</div>
 	);
 };
 
-export default CreateAcc;
+export default Login;
