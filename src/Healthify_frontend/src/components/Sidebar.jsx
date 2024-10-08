@@ -2,7 +2,12 @@ import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
 	return (
-		<nav className="text-white p-3 flex flex-col gap-4 bg-primary w-[250px] h-full fixed">
+		<nav className="text-white p-3 flex flex-col gap-4 bg-primary w-[250px] h-full min-h-screen sticky">
+			{/* sticky */}
+			<div className="h-full w-full ">
+
+			</div>
+
 			<div className="pb-5">HealthCentre</div>
 			<NavLink
 				to={"/user/dashboard"}
