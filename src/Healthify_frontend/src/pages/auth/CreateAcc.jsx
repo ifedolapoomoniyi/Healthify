@@ -83,7 +83,7 @@ const CreateAcc = () => {
 					</form>
 
 					<div className="text-right">
-						Already have an account? <Link className="text-secondary">Log in</Link>
+						Already have an account? <Link to={'/auth/login'} className="text-secondary">Log in</Link>
 					</div>
 				</div>
 			</div>
