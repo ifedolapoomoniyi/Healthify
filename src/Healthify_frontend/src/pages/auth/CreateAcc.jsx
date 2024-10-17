@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button } from "../../components/ui/Button";
 import Image from "/images/auth/create-account-img.png";
 import { TypographyH4 } from "../../components/Typography";
@@ -6,6 +6,8 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 
 const CreateAcc = () => {
+	const { role } = useParams();
+
 	const formik = useFormik({
 		initialValues: {
 			email: "",
@@ -28,15 +30,19 @@ const CreateAcc = () => {
 		<div className="flex flex-row gap-5 text-white h-screen items-center bg-healthImage bg-cover">
 			<div className="p-5 max-w-[529px] md:p-10 bg-transparentBlack h-full">
 				<div>
-					<TypographyH4 className={"my-5"}>Create a new account</TypographyH4>
+					<TypographyH4 className={"my-5"}>
+						Create a new account
+					</TypographyH4>
 					<p>
-						Welcome to Healthify, where we empower patients,
-						healthcare providers, and researchers through secure and
+						Welcome to Asuta, where we empower patients, healthcare
+						providers, and researchers through secure and
 						transparent blockchain technology.
 					</p>
 				</div>
 				<div>
-					<Button className="w-full my-5 hover:bg-primaryHover duration-300 transition-all">Continue with wallet</Button>
+					<Button className="w-full my-5 hover:bg-primaryHover duration-300 transition-all">
+						Continue with wallet
+					</Button>
 
 					<div className="my-5 text-center text-gray-600">OR</div>
 					<form onSubmit={formik.handleSubmit} className="space-y-3">
@@ -79,18 +85,60 @@ const CreateAcc = () => {
 								</div>
 							) : null}
 						</div>
-						<Button className="bg-secondary w-full my-10 hover:bg-secondaryHover" type="submit">Sign Up</Button>
+
+						<div className="flex flex-row gap-5 my-3">
+							<div className="space-x-1 ">
+								<input
+									type="radio"
+									name="role"
+									id="individual"
+									defaultChecked={role == "individual" ? true: false}
+									className=" accent-secondary"
+								/>
+								<label htmlFor="individual">Individual</label>
+							</div>
+							<div className="space-x-1 ">
+								<input
+									type="radio"
+									name="role"
+									id="provider"
+									className=" accent-secondary"
+									defaultChecked={role == "provider" ? true: false}
+
+								/>
+								<label htmlFor="provider">
+									Healthcare Provider
+								</label>
+							</div>
+							<div className="space-x-1 ">
+								<input
+									type="radio"
+									name="role"
+									id="researcher"
+									defaultChecked={role == "researcher" ? true: false}
+									className=" accent-secondary"
+								/>
+								<label htmlFor="researcher">Researcher</label>
+							</div>
+						</div>
+						<Button
+							className="bg-secondary w-full my-10 hover:bg-secondaryHover"
+							type="submit"
+						>
+							Sign Up
+						</Button>
 					</form>
 
 					<div className="text-right">
-						Already have an account? <Link to={'/auth/login'} className="text-secondary">Log in</Link>
+						Already have an account?{" "}
+						<Link to={"/auth/login"} className="text-secondary">
+							Log in
+						</Link>
 					</div>
 				</div>
 			</div>
 
-			<div>
-				{/* <img src={Image} alt="" /> */}
-			</div>
+			<div>{/* <img src={Image} alt="" /> */}</div>
 		</div>
 	);
 };
