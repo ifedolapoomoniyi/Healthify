@@ -5,7 +5,7 @@ const Navbar = () => {
 		<nav className="flex flex-row justify-between items-center rounded-3xl bg-primary text-white m-4 p-2 text-xl">
 			<div className="flex flex-row gap-2 bg-black rounded-3xl">
 				<NavLink></NavLink>
-				<NavLink>Healthify</NavLink>
+				<NavLink>Asuta</NavLink>
 			</div>
 
 			<div className="p-3 px-6 rounded-2xl bg-black space-x-10">
@@ -25,7 +25,7 @@ const Navbar = () => {
 			</div>
 
 			<div>
-				<NavLink to={'/auth/signup'} className="p-2 rounded-2xl bg-black">
+				<NavLink to={'/auth'} className="p-2 rounded-2xl bg-black">
 					Get Started
 				</NavLink>
 			</div>
