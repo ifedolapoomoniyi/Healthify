@@ -8,6 +8,7 @@ import UserResearch from "./pages/user/UserResearch";
 import UserResearchItems from "./pages/user/UserResearchItems";
 import UserRecords from "./pages/user/UserRecords";
 import Donations from "./pages/user/Donations";
+import JoinAs from "./pages/JoinAs";
 
 function App() {
 	// const [greeting, setGreeting] = useState("");
@@ -26,8 +27,13 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<Home />} />
+
+					{/* auth routes */}
+					<Route path="/auth" element={<JoinAs />} />
 					<Route path="/auth/signup" element={<CreateAcc />} />
+					<Route path="auth/signup/:role" element={<CreateAcc />} />
 					<Route path="/auth/login" element={<Login />} />
+					<Route path="/auth/login/:role" element={<Login />} />
 
 					{/* user routes */}
 					<Route path="/user/dashboard" element={<Dashboard />} />
@@ -37,7 +43,7 @@ function App() {
 						element={<UserResearchItems />}
 					/>
 					<Route path="user/records" element={<UserRecords />} />
-					<Route path="user/donations" element={<Donations />} />
+				<Route path="user/donations" element={<Donations />} />
 				</Routes>
 			</BrowserRouter>
 		</>
