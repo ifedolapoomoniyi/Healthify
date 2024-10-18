@@ -37,5 +37,17 @@ module Models {
     title: Text;
     description: Text;
     reward: Int;
+  };
+
+  public type Provider = {
+    fullName : Text;
+    email : Text;
+    phoneNumber : Text;
+    institution: Text;
+    speciality: Text;
+    licence: Text;
+    address: Text;
+    providerId : Text;
+    treated: [Text];
   }
 }
