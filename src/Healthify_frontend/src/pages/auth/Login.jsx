@@ -54,7 +54,7 @@ const { role } = useParams();
 								{...formik.getFieldProps("email")}
 							/>
 							{formik.touched.email && formik.errors.email ? (
-								<div className="text-white text-xs">
+								<div className="text-red-600 text-xs">
 									{formik.errors.email}
 								</div>
 							) : null}
@@ -74,7 +74,7 @@ const { role } = useParams();
 							/>
 							{formik.touched.password &&
 							formik.errors.password ? (
-								<div className="text-white text-xs">
+								<div className="text-red-600 text-xs">
 									{formik.errors.password}
 								</div>
 							) : null}
