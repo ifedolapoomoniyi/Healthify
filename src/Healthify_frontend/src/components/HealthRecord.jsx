@@ -1,7 +1,23 @@
 import { TypographyH6 } from "./Typography";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
+import { Healthify_backend } from "../../../declarations/Healthify_backend";
+import { useEffect, useState } from "react";
+import { useUserStore } from "../lib/store";
 
 const HealthRecord = ({ data }) => {
+	// update global state with user details
+	const { setUser, user } = useUserStore();
+	const [medicalInfo, setMedicalInfo] = useState({});
+	const userId = JSON.parse(localStorage.getItem("user"));
+	console.log(userId.patientId);
+	useEffect(() => {
+		Healthify_backend.getPatient(userId.patientId).then((info) => {
+			setMedicalInfo(info);
+			setUser(info)
+			// console.log(info);
+		});
+	}, []);
+
 	return (
 		<div className="bg-primary rounded-lg p-6 h-fit">
 			<div className="flex flex-row justify-between">
@@ -18,9 +34,9 @@ const HealthRecord = ({ data }) => {
 					<AvatarFallback className="bg-secondary">I</AvatarFallback>
 				</Avatar>
 				<div className="flex flex-col gap-2">
-					<span>{data.fullName}</span>
+					<span>{medicalInfo[0]?.fullName}</span>
 					<span className="text-orange-500 bg-opacity-50 bg-orange-500 rounded-2xl p-0.5 px-2 text-xs">
-						{data.description}
+						{medicalInfo[0]?.medicalInfo.existingConditions}
 					</span>
 				</div>
 			</div>
@@ -32,15 +48,15 @@ const HealthRecord = ({ data }) => {
 					<div>Blood group</div>
 					<div>Hospital ID</div>
 					<div>Allergies</div>
-					<div>Date of Birth</div>
+					<div>Age</div>
 				</div>
 
 				<div className="space-y-2">
-					<div>{data.gender}</div>
-					<div>{data.bloodgroup}</div>
-					<div>{data.hospitalID}</div>
-					<div>{data.allergies}</div>
-					<div>{data.dob}</div>
+					<div>{medicalInfo[0]?.gender}</div>
+					<div>{medicalInfo[0]?.medicalInfo.bloodGroup}</div>
+					<div>{medicalInfo[0]?.patientId}</div>
+					<div>{medicalInfo[0]?.medicalInfo.allergies}</div>
+					<div>{Number(medicalInfo[0]?.age)}</div>
 				</div>
 			</div>
 		</div>

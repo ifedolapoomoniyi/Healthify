@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button } from "../../components/ui/Button";
 import Image from "/images/auth/create-account-img.png";
 import { TypographyH4 } from "../../components/Typography";
@@ -6,6 +6,8 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 
 const Login = () => {
+const { role } = useParams();
+
 	const formik = useFormik({
 		initialValues: {
 			email: "",
@@ -29,7 +31,7 @@ const Login = () => {
 			<div className="p-5 w-full max-w-[529px] md:p-10 bg-transparentBlack h-full">
 				<div>
 					<TypographyH4 className={"my-5"}>Log In</TypographyH4>
-					<p>Welcome to Healthify, we missed you</p>
+					<p>Welcome to Asuta, we missed you</p>
 				</div>
 				<div>
 					<Button className="w-full my-5 hover:bg-primaryHover duration-300 transition-all">
@@ -52,7 +54,7 @@ const Login = () => {
 								{...formik.getFieldProps("email")}
 							/>
 							{formik.touched.email && formik.errors.email ? (
-								<div className="text-white text-xs">
+								<div className="text-red-600 text-xs">
 									{formik.errors.email}
 								</div>
 							) : null}
@@ -72,7 +74,7 @@ const Login = () => {
 							/>
 							{formik.touched.password &&
 							formik.errors.password ? (
-								<div className="text-white text-xs">
+								<div className="text-red-600 text-xs">
 									{formik.errors.password}
 								</div>
 							) : null}
@@ -83,6 +85,47 @@ const Login = () => {
 							>
 								Forgot Password?
 							</Link>
+						</div>
+
+						<div className="flex flex-row gap-5 my-3">
+							<div className="space-x-1 ">
+								<input
+									type="radio"
+									name="role"
+									id="individual"
+									defaultChecked={
+										role == "individual" ? true : false
+									}
+									className=" accent-secondary"
+								/>
+								<label htmlFor="individual">Individual</label>
+							</div>
+							<div className="space-x-1 ">
+								<input
+									type="radio"
+									name="role"
+									id="provider"
+									className=" accent-secondary"
+									defaultChecked={
+										role == "provider" ? true : false
+									}
+								/>
+								<label htmlFor="provider">
+									Healthcare Provider
+								</label>
+							</div>
+							<div className="space-x-1 ">
+								<input
+									type="radio"
+									name="role"
+									id="researcher"
+									defaultChecked={
+										role == "researcher" ? true : false
+									}
+									className=" accent-secondary"
+								/>
+								<label htmlFor="researcher">Researcher</label>
+							</div>
 						</div>
 						<Button
 							className="bg-secondary w-full my-10 hover:bg-secondaryHover"
