@@ -12,14 +12,11 @@ actor {
   type Provider = Models.Provider;
 
   var dummyMedicalInfo : Models.MedicalInfo = {
-    name = "Ifedolapo";
-    age = 22;
     bloodGroup = "O+";
     genotype = "AA";
     allergies = "none";
-    existingConditons = "none";
-    gender = "male";
-    description = "none";
+    existingConditions = "none";
+    existingMedications = "none";
   };
 
   var dummyPatient : PatientInfo = {
@@ -34,6 +31,7 @@ actor {
     nextOfKinPhone = "08087654321";
     medicalInfo = dummyMedicalInfo;
     patientId = "1234";
+    gender = "male";
   };
 
   // let patients : HashMap.HashMap<Principal, PatientInfo> = HashMap.HashMap<Principal, PatientInfo>(0, Principal.equal, Principal.hash);
@@ -44,7 +42,6 @@ actor {
   let research = HashMap.HashMap<Text, Research>(5, Text.equal, Text.hash);
 
   patients.put("1234", dummyPatient);
-
   // patient functions
   public shared func addPatient(patient : PatientInfo) : async Text {
     patients.put(patient.patientId, patient);
@@ -60,6 +57,13 @@ actor {
     patients.put(patient.patientId, patient);
     return patient.fullName # " has been updated successfully";
   };
+  public shared func deletePatient(patientId : Text) : async Text {
+    patients.delete(patientId);
+    return patientId # " has been deleted successfully";
+  };
+  public shared func getPatientsSize() : async Int {
+    return patients.size();
+  };
 
 
   // Provider functions
@@ -74,6 +78,10 @@ actor {
 
   public shared func getAllProviders() : async [Provider] {
     return Iter.toArray(providers.vals());
+  };
+
+  public shared func getProvidersSize() : async Int {
+    return providers.size();
   };
 
   // Donate functions
@@ -116,7 +124,7 @@ actor {
 
 
   public func test() : async Text {
-    return dummyPatient.fullName # " has been diagnosed with " # dummyPatient.medicalInfo.existingConditons # " and has a blood group of " # dummyPatient.medicalInfo.bloodGroup;
+    return dummyPatient.fullName # " has been diagnosed with " # dummyPatient.medicalInfo.existingConditions # " and has a blood group of " # dummyPatient.medicalInfo.bloodGroup;
   };
 
 };
