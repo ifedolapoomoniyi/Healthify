@@ -9,19 +9,12 @@ import UserResearchItems from "./pages/user/UserResearchItems";
 import UserRecords from "./pages/user/UserRecords";
 import Donations from "./pages/user/Donations";
 import JoinAs from "./pages/JoinAs";
+import Details from "./pages/auth/Details";
+import CompleteDetails from "./pages/auth/CompleteDetails";
+import RegProvider from "./pages/auth/RegProvider";
+import ProviderDashboard from "./pages/provider/ProviderDashboard";
 
 function App() {
-	// const [greeting, setGreeting] = useState("");
-
-	// function handleSubmit(event) {
-	// 	event.preventDefault();
-	// 	const name = event.target.elements.name.value;
-	//   console.log(name)
-	// 	Healthify_backend.greet(name).then((greeting) => {
-	// 		setGreeting(greeting);
-	// 	});
-	// 	return false;
-	// }
 	return (
 		<>
 			<BrowserRouter>
@@ -34,6 +27,15 @@ function App() {
 					<Route path="auth/signup/:role" element={<CreateAcc />} />
 					<Route path="/auth/login" element={<Login />} />
 					<Route path="/auth/login/:role" element={<Login />} />
+					<Route path="/auth/signup/form" element={<Details />} />
+					<Route
+						path="/auth/signup/form/2"
+						element={<CompleteDetails />}
+					/>
+					<Route
+						path="/auth/signup/provider/verify"
+						element={<RegProvider />}
+					/>
 
 					{/* user routes */}
 					<Route path="/user/dashboard" element={<Dashboard />} />
@@ -43,7 +45,13 @@ function App() {
 						element={<UserResearchItems />}
 					/>
 					<Route path="user/records" element={<UserRecords />} />
-				<Route path="user/donations" element={<Donations />} />
+					<Route path="user/donations" element={<Donations />} />
+
+					{/* provider routes */}
+					<Route
+						path="/provider/dashboard"
+						element={<ProviderDashboard />}
+					/>
 				</Routes>
 			</BrowserRouter>
 		</>
