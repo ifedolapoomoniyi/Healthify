@@ -2,10 +2,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 import { FaBell } from "react-icons/fa";
 import { Button } from "./ui/Button";
 import { useLocation } from "react-router-dom";
+import { useUserStore } from "../lib/store";
 
 const TopBar = () => {
 	const location = useLocation();
 	const dashRoute = location.pathname.split("/")[2];
+
+	const { user } = useUserStore();
+
 
 	return (
 		<div className="flex flex-row gap-2 w-full justify-between items-center">
@@ -22,7 +26,7 @@ const TopBar = () => {
 						<AvatarFallback className ={'bg-secondary'}>I</AvatarFallback>
 					</Avatar>
 
-					<div>Ifedimeji Omoniyi</div>
+					<div>{user?.[0]?.fullName}</div>
 				</div>
 				<div>
 					<FaBell />
