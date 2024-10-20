@@ -12,3 +12,9 @@ export const useProviderStore = create((set) => ({
   setProvider: (provider) => set({ provider }),
   logout: () => set({ provider: null }),
 }));
+
+export const usePatientsStore = create((set) => ({
+  patients: null,
+  setPatients: (patients) => set({ patients }),
+  logout: () => set({ patients: null }),
+}));
