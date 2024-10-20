@@ -28,6 +28,26 @@ export const upcomingAppointments = [
 		title: "Eye Test",
 	},
 ];
+export const upcomingAppointmentsProvider = [
+	{
+		date: "30th oct, 2024",
+		time: "10:00am",
+		priority: "high",
+		title: "Video call with Mr John Doe",
+	},
+	{
+		date: "30th oct, 2024",
+		time: "2:00pm",
+		priority: "high",
+		title: "Chat with with Mr Ifedolapo Omoniyi",
+	},
+	{
+		date: "2nd nov, 2024",
+		time: "10:00am",
+		priority: "high",
+		title: "Video call with Mr John Doe",
+	},
+];
 
 export const mainDonateCardData = [
 	{
