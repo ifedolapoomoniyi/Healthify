@@ -13,7 +13,7 @@ const HealthRecord = ({ data }) => {
 	useEffect(() => {
 		Healthify_backend.getPatient(userId.patientId).then((info) => {
 			setMedicalInfo(info);
-			setUser(info)
+			setUser(info);
 			// console.log(info);
 		});
 	}, []);

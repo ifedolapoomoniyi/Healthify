@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Button } from "../../components/ui/Button";
 import Image from "/images/auth/create-account-img.png";
 import { TypographyH4 } from "../../components/Typography";
@@ -7,11 +7,16 @@ import { useFormik } from "formik";
 
 const CreateAcc = () => {
 	const { role } = useParams();
+	const navigate = useNavigate();
+	const navigateTo = () => {
+		navigate(`/auth/signup/form`);
+	};
 
 	const formik = useFormik({
 		initialValues: {
 			email: "",
 			password: "",
+			role: role || "",
 		},
 		validationSchema: Yup.object({
 			email: Yup.string()
@@ -20,9 +25,12 @@ const CreateAcc = () => {
 			password: Yup.string()
 				.required("Required")
 				.min(6, "Must be at least 8 characters"),
+			role: Yup.string(),
 		}),
 		onSubmit: (values) => {
 			console.log(values);
+			localStorage.setItem("user", JSON.stringify(values));
+			navigateTo();
 		},
 	});
 
@@ -60,7 +68,7 @@ const CreateAcc = () => {
 								{...formik.getFieldProps("email")}
 							/>
 							{formik.touched.email && formik.errors.email ? (
-								<div className="text-white text-xs">
+								<div className="text-red-600 text-xs">
 									{formik.errors.email}
 								</div>
 							) : null}
@@ -80,56 +88,67 @@ const CreateAcc = () => {
 							/>
 							{formik.touched.password &&
 							formik.errors.password ? (
-								<div className="text-white text-xs">
+								<div className="text-red-600 text-xs">
 									{formik.errors.password}
 								</div>
 							) : null}
 						</div>
-
 						<div className="flex flex-row gap-5 my-3">
-							<div className="space-x-1 ">
+							<div className="space-x-1">
 								<input
 									type="radio"
-									name="role"
 									id="individual"
-									defaultChecked={role == "individual" ? true: false}
-									className=" accent-secondary"
+									name="role" // This is important for the radio group
+									value="individual" // Each radio button needs its own value
+									checked={
+										formik.values.role === "individual"
+									} // Check if Formik's value is selected
+									onChange={formik.handleChange} // Update Formik's value on change
+									className="accent-secondary"
 								/>
 								<label htmlFor="individual">Individual</label>
 							</div>
-							<div className="space-x-1 ">
+
+							<div className="space-x-1">
 								<input
 									type="radio"
-									name="role"
 									id="provider"
-									className=" accent-secondary"
-									defaultChecked={role == "provider" ? true: false}
-
+									name="role"
+									value="provider"
+									checked={formik.values.role === "provider"}
+									onChange={formik.handleChange}
+									className="accent-secondary"
 								/>
 								<label htmlFor="provider">
 									Healthcare Provider
 								</label>
 							</div>
-							<div className="space-x-1 ">
+
+							<div className="space-x-1 mb-8">
 								<input
 									type="radio"
-									name="role"
 									id="researcher"
-									defaultChecked={role == "researcher" ? true: false}
-									className=" accent-secondary"
+									name="role"
+									value="researcher"
+									checked={
+										formik.values.role === "researcher"
+									}
+									onChange={formik.handleChange}
+									className="accent-secondary"
 								/>
 								<label htmlFor="researcher">Researcher</label>
 							</div>
 						</div>
+
 						<Button
-							className="bg-secondary w-full my-10 hover:bg-secondaryHover"
+							className="bg-secondary w-full hover:bg-secondaryHover"
 							type="submit"
 						>
 							Sign Up
 						</Button>
 					</form>
 
-					<div className="text-right">
+					<div className="text-right mt-5">
 						Already have an account?{" "}
 						<Link to={"/auth/login"} className="text-secondary">
 							Log in
