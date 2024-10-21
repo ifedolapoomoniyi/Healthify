@@ -49,11 +49,22 @@ module Models {
     nextOfKin : Text;
     nextOfKinPhone : Text;
     gender : Text;
-    institution : Text;
+  institution : Text;
     speciality : Text;
     licence : Text;
     providerId : Text;
     issuingAuthority : Text;
     telemedicine : Bool;
   };
+
+  public type ViewedProviders = {
+    providerId : Text;
+    time : Text;
+  };
+  public type DataViewedBy = {
+    viewedProviders : [ViewedProviders];
+    patientId : Text;
+
+  }
+
 };
