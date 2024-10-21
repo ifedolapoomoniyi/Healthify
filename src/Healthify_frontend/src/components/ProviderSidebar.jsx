@@ -30,14 +30,14 @@ const ProviderSidebar = () => {
 			</NavLink>
 
 			<NavLink
-				to={"/provider/records"}
+				to={"/provider/view-patient"}
 				className={({ isActive }) => {
 					return isActive
 						? "bg-secondary p-1 rounded-lg px-3 w-full"
 						: "p-1 rounded-2xl px-3 w-full";
 				}}
 			>
-				Health records
+				View Patients
 			</NavLink>
 
 			<NavLink

@@ -15,7 +15,6 @@ const ProviderTopbar = () => {
 	useEffect(() => {
 		Healthify_backend.getProvider(providerId).then((provider) => {
 			setProvider(provider);
-			console.log(provider);
 		});
 	}, []);
 
