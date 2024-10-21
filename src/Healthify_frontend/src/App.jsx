@@ -13,6 +13,8 @@ import Details from "./pages/auth/Details";
 import CompleteDetails from "./pages/auth/CompleteDetails";
 import RegProvider from "./pages/auth/RegProvider";
 import ProviderDashboard from "./pages/provider/ProviderDashboard";
+import ViewPatients from "./pages/provider/ViewPatients";
+import PatientDetails from "./pages/provider/PatientDetails";
 
 function App() {
 	return (
@@ -52,6 +54,8 @@ function App() {
 						path="/provider/dashboard"
 						element={<ProviderDashboard />}
 					/>
+					<Route path="/provider/view-patient" element={<ViewPatients />} />
+					<Route path="/provider/view-patient/:id" element={<PatientDetails />} />
 				</Routes>
 			</BrowserRouter>
 		</>
