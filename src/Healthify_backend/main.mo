@@ -10,6 +10,8 @@ actor {
   type Donations = Models.Donations;
   type Research = Models.Research;
   type Provider = Models.Provider;
+  type ViewedProviders = Models.ViewedProviders;
+  type DataViewedBy = Models.DataViewedBy;
 
   var dummyMedicalInfo : Models.MedicalInfo = {
     bloodGroup = "O+";
@@ -64,7 +66,6 @@ actor {
   public shared func getPatientsSize() : async Int {
     return patients.size();
   };
-
 
   // Provider functions
   public shared func addProvider(provider : Provider) : async Text {
@@ -122,6 +123,46 @@ actor {
     return title # " has been deleted successfully";
   };
 
+  // store list of providers that access data of a patient
+  let accessLogs = HashMap.HashMap<Text, DataViewedBy>(5, Text.equal, Text.hash);
+
+  public shared func getPatientAccessLogs(patientId : Text) : async ?DataViewedBy {
+    return accessLogs.get(patientId);
+  };
+
+  public shared func addNewAccessLog(patientId : Text, viewedProviders : [ViewedProviders]) : async Text {
+    let accessLog = {
+      viewedProviders = viewedProviders;
+      patientId = patientId;
+    };
+    accessLogs.put(patientId, accessLog);
+    return "Access log has been added successfully";
+  };
+
+  public shared func updateAccessLog(patientId : Text, viewedProviders : [ViewedProviders]) : async Text {
+    let accessLog = {
+      viewedProviders = viewedProviders;
+      patientId = patientId;
+    };
+    accessLogs.put(patientId, accessLog);
+    return "Access log has been updated successfully";
+  };
+
+  public shared func getAllLogs() : async [DataViewedBy] {
+    return Iter.toArray(accessLogs.vals());
+  };
+
+  // public shared func addDataViewedBy(patientId : Text, accessLogs : DataViewedBy) : async Text {
+  //   switch (dataViewedBy.get(patientId)) {
+  //       case (?viewedBy) {
+  //           dataViewedBy.put(patientId, accessLogs);
+  //       };
+  //       case (null) {
+  //           // Handle the case where the value does not exist
+  //       };
+  //   };
+  //   return "text";
+  // };
 
   public func test() : async Text {
     return dummyPatient.fullName # " has been diagnosed with " # dummyPatient.medicalInfo.existingConditions # " and has a blood group of " # dummyPatient.medicalInfo.bloodGroup;

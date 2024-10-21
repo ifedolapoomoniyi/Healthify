@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const UpcomingAppointments = ({ data }) => {
 	return (
-		<div className="bg-[#111111] rounded-xl shadow-sm p-3">
+		<div className="bg-[#111111] rounded-xl shadow-sm p-3 cursor-not-allowed opacity-45">
 			{/* upcoming appointments */}
 			<div className="rounded-xl border border-gray-800 p-5">
 				<div className="flex flex-row justify-between items-center py-3">

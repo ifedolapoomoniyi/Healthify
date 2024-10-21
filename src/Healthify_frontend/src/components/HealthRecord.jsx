@@ -9,11 +9,10 @@ const HealthRecord = ({ data }) => {
 	const { setUser, user } = useUserStore();
 	const [medicalInfo, setMedicalInfo] = useState({});
 	const userId = JSON.parse(localStorage.getItem("user"));
-	console.log(userId.patientId);
 	useEffect(() => {
 		Healthify_backend.getPatient(userId.patientId).then((info) => {
 			setMedicalInfo(info);
-			setUser(info)
+			setUser(info);
 			// console.log(info);
 		});
 	}, []);
