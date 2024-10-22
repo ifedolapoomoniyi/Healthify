@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import { useProviderStore } from "../lib/store";
 import { useEffect } from "react";
 import { Healthify_backend } from "../../../declarations/Healthify_backend";
+import { FaMagnifyingGlass } from "react-icons/fa6";
 
 const ProviderTopbar = () => {
 	const location = useLocation();
@@ -21,9 +22,13 @@ const ProviderTopbar = () => {
 	return (
 		<div className="flex flex-row gap-2 w-full justify-between items-center">
 			<h2 className="font-semibold text-xl capitalize">{dashRoute}</h2>
-			<div>
-				<input type="text" />
-				<button></button>
+			<div className="relative text-white">
+				<FaMagnifyingGlass className="absolute left-3 top-3 text-gray-600" />
+				<input
+					type="text"
+					className="bg-primary rounded-lg p-2 px-3 w-72 pl-10 mr-1"
+					placeholder="Search"
+				/>
 			</div>
 
 			<div className="flex flex-row gap-2 items-center">

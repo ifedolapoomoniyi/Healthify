@@ -13,8 +13,8 @@ const Navbar = () => {
 					to={"/"}
 					className={({ isActive }) => {
 						return isActive
-							? "bg-secondary p-1 rounded-2xl px-3"
-							: "p-1 rounded-2xl px-3";
+							? "bg-primary p-2 inline-block rounded-2xl px-4"
+							: "p-2 rounded-2xl px-4";
 					}}
 				>
 					Home
@@ -25,7 +25,7 @@ const Navbar = () => {
 			</div>
 
 			<div>
-				<NavLink to={'/auth'} className="p-2 rounded-2xl bg-black">
+				<NavLink to={'/auth'} className="p-2 px-4 rounded-2xl bg-secondary">
 					Get Started
 				</NavLink>
 			</div>

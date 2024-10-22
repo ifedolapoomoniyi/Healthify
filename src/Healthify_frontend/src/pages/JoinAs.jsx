@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const JoinAs = () => {
 	return (
 		<div className="p-5 text-white min-h-[90vh] flex flex-col items-center justify-center">
-			<div className="flex flex-row gap-16 justify-center my-10">
+			<div className="flex flex-row flex-wrap gap-16 justify-center my-10">
 				{/* signup as an individual */}
 				<div className="bg-primary p-5 rounded-lg w-[300px] flex flex-col justify-between">
 					<GoPersonFill className="text-3xl text-center w-full" />
@@ -17,7 +17,7 @@ const JoinAs = () => {
 					</div>
 					<Link
 						to={"signup/individual"}
-						className="bg-black rounded-2xl py-1 px-4 mt-5 block border-2 border-secondary w-fit"
+						className="bg-black rounded-2xl py-1 px-4 mt-5 block border-2 border-secondary w-fit hover:bg-secondary duration-300"
 					>
 						Sign up
 					</Link>
@@ -35,7 +35,7 @@ const JoinAs = () => {
 					</div>
 					<Link
 						to={"signup/provider"}
-						className="bg-black rounded-2xl py-1 px-4 mt-5 block border-2 border-secondary w-fit"
+						className="bg-black rounded-2xl py-1 px-4 mt-5 block border-2 border-secondary w-fit hover:bg-secondary duration-300"
 					>
 						Sign up
 					</Link>
@@ -52,7 +52,7 @@ const JoinAs = () => {
 					</div>
 					<Link
 						to={"signup/researcher"}
-						className="bg-black rounded-2xl py-1 px-4 mt-5 block border-2 border-secondary w-fit"
+						className="bg-black rounded-2xl py-1 px-4 mt-5 block border-2 border-secondary w-fit hover:bg-secondary duration-300"
 					>
 						Sign up
 					</Link>

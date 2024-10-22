@@ -64,7 +64,8 @@ const RegProvider = () => {
 				console.log("success");
 				toast({
 					variant: "secondary",
-					className: "text-white bg-green-700 border-none shadow-lg text-xl font-semibold",
+					className:
+						"text-white bg-green-700 border-none shadow-lg text-xl font-semibold",
 					description: `Registration successful`,
 				});
 				setTimeout(navigate("/provider/dashboard"), 2000);
@@ -72,8 +73,8 @@ const RegProvider = () => {
 		},
 	});
 	return (
-		<div>
-			<div className="text-white p-7">
+		<div className="flex flex-row gap-5 text-white min-h-screen items-center bg-doctorsImage2 bg-cover">
+			<div className="text-white p-5 max-w-[700px] md:p-10 bg-transparentBlack h-full min-h-screen">
 				<TypographyH3>Welcome</TypographyH3>
 				<p>A couple things we need to know about you</p>
 
