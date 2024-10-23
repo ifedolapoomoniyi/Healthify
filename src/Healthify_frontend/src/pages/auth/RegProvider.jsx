@@ -154,7 +154,7 @@ const RegProvider = () => {
 							) : null}
 						</div>
 
-						<div className="flex flex-col gap-1">
+						{/* <div className="flex flex-col gap-1 bg-red-500 cursor-not-allowed">
 							<label
 								className="text-sm font-semibold"
 								htmlFor="telemedicine"
@@ -204,7 +204,7 @@ const RegProvider = () => {
 									{formik.errors.telemedicine}
 								</div>
 							) : null}
-						</div>
+						</div> */}
 					</div>
 
 					<div className="flex flex-col gap-1">
