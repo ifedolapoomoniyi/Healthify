@@ -105,6 +105,8 @@ export default {
 			},
 			backgroundImage: {
 				healthImage: 'url("/images/auth/create-account-img.png")',
+				dooctorsImage: 'url("/images/auth/bg-img.png")',
+				doctorsImage2: 'url("/images/auth/bg-img2.jpg")',
 			},
 		},
 	},

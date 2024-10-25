@@ -12,7 +12,7 @@ const Sidebar = () => {
 				className={({ isActive }) => {
 					return isActive
 						? "bg-secondary p-1 rounded-lg px-3 w-full"
-						: "p-1 rounded-2xl px-3 w-full";
+						: "p-1 rounded-2xl px-3 w-full hover:opacity-65";
 				}}
 			>
 				Dashboard
@@ -23,7 +23,7 @@ const Sidebar = () => {
 				className={({ isActive }) => {
 					return isActive
 						? "bg-secondary p-1 rounded-lg px-3 w-full"
-						: "p-1 rounded-2xl px-3 w-full";
+						: "p-1 rounded-2xl px-3 w-full hover:opacity-65 ";
 				}}
 			>
 				Appointments
@@ -34,7 +34,7 @@ const Sidebar = () => {
 				className={({ isActive }) => {
 					return isActive
 						? "bg-secondary p-1 rounded-lg px-3 w-full"
-						: "p-1 rounded-2xl px-3 w-full";
+						: "p-1 rounded-2xl px-3 w-full hover:opacity-65";
 				}}
 			>
 				Health records
@@ -45,7 +45,7 @@ const Sidebar = () => {
 				className={({ isActive }) => {
 					return isActive
 						? "bg-secondary p-1 rounded-lg px-3 w-full"
-						: "p-1 rounded-2xl px-3 w-full";
+						: "p-1 rounded-2xl px-3 w-full hover:opacity-65 ";
 				}}
 			>
 				Telemedicine
@@ -56,7 +56,7 @@ const Sidebar = () => {
 				className={({ isActive }) => {
 					return isActive
 						? "bg-secondary p-1 rounded-lg px-3 w-full"
-						: "p-1 rounded-2xl px-3 w-full";
+						: "p-1 rounded-2xl px-3 w-full hover:opacity-65 ";
 				}}
 			>
 				Earn from research
@@ -66,7 +66,7 @@ const Sidebar = () => {
 				className={({ isActive }) => {
 					return isActive
 						? "bg-secondary p-1 rounded-lg px-3 w-full"
-						: "p-1 rounded-2xl px-3 w-full";
+						: "p-1 rounded-2xl px-3 w-full hover:opacity-65";
 				}}
 			>
 				Donate
@@ -77,7 +77,7 @@ const Sidebar = () => {
 				className={({ isActive }) => {
 					return isActive
 						? "bg-secondary p-1 rounded-lg px-3 w-full"
-						: "p-1 rounded-2xl px-3 w-full";
+						: "p-1 rounded-2xl px-3 w-full hover:opacity-65 ";
 				}}
 			>
 				Settings
